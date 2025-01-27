@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Index</title>
+  </head>
+  <body>
+    <h1>Browse Available Books!</h1>
+    <p>Books will go here after seeding</p>
+
+    <ul>
+      <% books.forEach(book => { %>
+      <h1><%=book.title%></h1>
+      <li>Author: <%=book.author%></li>
+      <li>Genre: <%=book.genre%></li>
+      <p>Summary: <%= book.summary %></p>
+      <% }) %>
+    </ul>
+  </body>
+</html>

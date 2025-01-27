@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Show</title>
+  </head>
+  <body>
+    <h1><%=book.title%></h1>
+    <ul>
+      <li>Author: <%=book.author%></li>
+      <li>Genre: <%=book.genre%></li>
+      <p>Summary: <%= book.summary %></p>
+    </ul>
+    <% if (user){ %>
+    <form action="/users/<%=user._id%>/cart" method="POST">
+      <input
+        type="text"
+        name="title"
+        id="title"
+        value="<%=book.title%>"
+        hidden
+      />
+      <input
+        type="text"
+        name="author"
+        id="author"
+        value="<%=book.author%>"
+        hidden
+      />
+      <input
+        type="text"
+        name="genre"
+        id="genre"
+        value="<%=book.genre%>"
+        hidden
+      />
+      <input
+        type="text"
+        name="summary"
+        id="summary"
+        value="<%=book.summary%>"
+        hidden
+      />
+
+      <button type="submit">Add to cart</button>
+    </form>
+    <% } else { %>
+    <p><a href="/auth/sign-in">Login </a>to add to cart</p>
+    <% } %>
+  </body>
+</html>
