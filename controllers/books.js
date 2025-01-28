@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
     res.render("books/index.ejs", { books: allBooks });
   } catch (err) {
     console.log(err);
+    // res.redirect("/");
     res.send("Error in rendering books index");
   }
 });
@@ -19,26 +20,39 @@ router.get("/:bookId", async (req, res) => {
     const book = await BookModel.findById(req.params.bookId);
     res.render("books/show.ejs", { book: book });
   } catch (err) {
-    consol.elog(err);
-    res.send("Error in rendering book show page changed --- ba ");
+    console.log(err);
+    res.send("Error in rendering book show page");
   }
 });
 
 router.post("/:bookId", async (req, res) => {
   try {
     const currentUser = await UserModel.findById(req.session.user._id);
-    // currentUser.cart.push(req.body);
-    // await currentUser.save();
     const book = await BookModel.findOne({ _id: req.params.bookId });
-    book.purchaser.push(req.session.user._id);
-    // req.body.purchaser = req.session.user._id;
-    // await BookModel.create(req.body);
-    await book.save()
+    book.purchasers.push(req.session.user._id);
+    await book.save();
     res.redirect(`/users/${currentUser._id}/cart`);
   } catch (err) {
     console.log(err);
     // res.redirect("/");
-    res.send("Error posting pbook to cart");
+    res.send("Error posting book to cart");
+  }
+});
+
+router.delete("/:bookId", async (req, res) => {
+  try {
+    const currentUser = await UserModel.findById(req.session.user._id);
+    // const book = await BookModel.findById(req.params.bookId);
+    // console.log(book);
+    // book.purchasers.objectId(currentUser).deleteOne();
+    // await book.save();
+    await BookModel.findByIdAndUpdate(req.params.bookId, {
+      $pull: { purchasers: req.session.user._id },
+    }),
+      res.redirect(`/users/${currentUser._id}/cart`);
+  } catch (err) {
+    console.log(err);
+    res.send("Error deleting cart item");
   }
 });
 

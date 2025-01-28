@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 
-const UserModel = require("../models/user.js");
-
 const bookSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -18,12 +16,12 @@ const bookSchema = new mongoose.Schema({
     type: String,
   },
   // a field/key to represent the relationship
-  purchaser: [
+  purchasers: [
     {
       // type is the user's object id
       type: mongoose.Schema.Types.ObjectId,
       // tell mongoose what we are referencing
-      ref: "UserModel",
+      ref: "User",
     },
   ],
 });

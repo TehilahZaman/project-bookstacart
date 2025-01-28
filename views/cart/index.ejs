@@ -7,7 +7,18 @@
   </head>
   <body>
     <h1>Welcome to your cart!</h1>
-
-    <h2>this is okay for now</h2>
+      <ul>
+      <% cart.forEach(book => { %>
+      <div><%=book.title%></div>
+      <li>Author: <%=book.author%></li>
+      <li>Genre: <%=book.genre%></li>
+      <p>Summary: <%= book.summary %></p>
+      <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
+        <button type='submit'>Delete from cart</button>
+     </form>
+     <!-- <% book.purchasers.forEach(purchaser => { %>
+      <%= purchaser.username %>
+     <% }) %>
+      <% }) %> -->
   </body>
 </html>
