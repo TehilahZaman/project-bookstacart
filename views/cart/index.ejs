@@ -6,9 +6,17 @@
     <title>Cart Index</title>
   </head>
   <body>
+      <%- include('../partials/_navbar')%> 
     <h1>Welcome to your cart!</h1>
+    <% let shownOnce = false; %>
       <ul>
-      <% cart.forEach(book => { %>
+    <% cart.forEach(book => { %>
+      <% if (!shownOnce) { %>
+      <form action="/books/<%=book._id%>?_method=PUT" method="POST">
+        <button type='submit'>Delete All</button>
+     </form>
+     <% shownOnce = true; %> 
+     <% } %>
       <div><%=book.title%></div>
       <li>Author: <%=book.author%></li>
       <li>Genre: <%=book.genre%></li>
@@ -16,9 +24,7 @@
       <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
         <button type='submit'>Delete from cart</button>
      </form>
-     <!-- <% book.purchasers.forEach(purchaser => { %>
-      <%= purchaser.username %>
-     <% }) %>
-      <% }) %> -->
+    <% }) %>
   </body>
 </html>
+</form>

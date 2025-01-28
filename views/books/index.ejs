@@ -6,9 +6,9 @@
     <title>Book Index</title>
   </head>
   <body>
+    <%- include('../partials/_navbar')%>
     <h1>Browse Available Books!</h1>
     <p>Books will go here after seeding</p>
-
     <ul>
       <% books.forEach(book => { %>
       <h1><%=book.title%></h1>

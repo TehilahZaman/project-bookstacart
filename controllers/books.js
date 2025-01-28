@@ -25,6 +25,7 @@ router.get("/:bookId", async (req, res) => {
   }
 });
 
+// this doesn't match restful convention
 router.post("/:bookId", async (req, res) => {
   try {
     const currentUser = await UserModel.findById(req.session.user._id);
@@ -53,6 +54,21 @@ router.delete("/:bookId", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.send("Error deleting cart item");
+  }
+});
+
+router.put("/:bookId", async (req, res) => {
+  try {
+    const currentUser = await UserModel.findById(req.session.user._id);
+    const book = await BookModel.updateMany(
+      { purchasers: req.session.user._id },
+      { $pull: { purchasers: req.session.user._id } }
+    );
+    // await book.save();
+    res.redirect(`/users/${currentUser._id}/cart`);
+  } catch (err) {
+    console.log(err);
+    res.send("Error deleting all cart items");
   }
 });
 
