@@ -24,4 +24,22 @@ router.get("/:bookId", async (req, res) => {
   }
 });
 
+router.post("/:bookId", async (req, res) => {
+  try {
+    const currentUser = await UserModel.findById(req.session.user._id);
+    // currentUser.cart.push(req.body);
+    // await currentUser.save();
+    const book = await BookModel.findOne({ _id: req.params.bookId });
+    book.purchaser.push(req.session.user._id);
+    // req.body.purchaser = req.session.user._id;
+    // await BookModel.create(req.body);
+    await book.save()
+    res.redirect(`/users/${currentUser._id}/cart`);
+  } catch (err) {
+    console.log(err);
+    // res.redirect("/");
+    res.send("Error posting pbook to cart");
+  }
+});
+
 module.exports = router;

@@ -17,13 +17,15 @@ const bookSchema = new mongoose.Schema({
   summary: {
     type: String,
   },
-  // a field/key to represent the relationship 
-  purchaser: {
-    // type is the user's object id 
-    type: mongoose.Schema.Types.ObjectId,
-    // tell mongoose what we are referencing 
-    ref: 'UserModel'
-  }
+  // a field/key to represent the relationship
+  purchaser: [
+    {
+      // type is the user's object id
+      type: mongoose.Schema.Types.ObjectId,
+      // tell mongoose what we are referencing
+      ref: "UserModel",
+    },
+  ],
 });
 
 const BookModel = mongoose.model("Book", bookSchema);

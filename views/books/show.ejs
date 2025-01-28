@@ -13,7 +13,7 @@
       <p>Summary: <%= book.summary %></p>
     </ul>
     <% if (user){ %>
-    <form action="/users/<%=user._id%>/cart" method="POST">
+    <form action="/books/<%=book._id%>" method="POST">
       <input
         type="text"
         name="title"
