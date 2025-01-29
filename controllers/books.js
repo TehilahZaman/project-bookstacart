@@ -36,6 +36,7 @@ router.get("/fetch-and-save-books", async (req, res) => {
   }
 });
 
+// show route for a book
 router.get("/:bookId", async (req, res) => {
   try {
     const book = await BookModel.findById(req.params.bookId);
@@ -46,7 +47,9 @@ router.get("/:bookId", async (req, res) => {
   }
 });
 
+//create route
 // this doesn't match restful convention
+///:bookId
 router.post("/:bookId", async (req, res) => {
   try {
     const currentUser = await UserModel.findById(req.session.user._id);

@@ -9,11 +9,16 @@
   <body>
     <%- include('../partials/_navbar')%>
     <h1><%=book.title%></h1>
-    <ul>
-      <li>Author: <%=book.author%></li>
-      <li>Genre: <%=book.genre%></li>
-      <p>Summary: <%= book.summary %></p>
-    </ul>
+
+    <div class="mid-body">
+      <img src="<%=book.thumbnail%>" width="140" height="180" />
+      <div id="show-author">
+        Author: <% book.authors.forEach((author, index) => {%>
+        <%=author%><%=index < book.authors.length - 1 ? ',' : ' ' %> <% }) %>
+      </div>
+      <div id="show-genre">Genre: <%=book.genre%></div>
+      <p class="show-summary">Summary: <%= book.summary %></p>
+    </div>
     <% if (user){ %>
     <form action="/books/<%=book._id%>" method="POST">
       <input
@@ -27,7 +32,7 @@
         type="text"
         name="author"
         id="author"
-        value="<%=book.author%>"
+        value="<%=book.authors%>"
         hidden
       />
       <input
@@ -45,7 +50,7 @@
         hidden
       />
 
-      <button type="submit">Add to cart</button>
+      <button id="add-one" type="submit">Add to cart</button>
     </form>
     <% } else { %>
     <p><a href="/auth/sign-in">Login </a>to add to cart</p>

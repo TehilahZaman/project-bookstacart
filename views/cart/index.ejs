@@ -10,23 +10,31 @@
       <%- include('../partials/_navbar')%> 
     <h1>Welcome to your cart!</h1>
     <% let shownOnce = false; %>
-      <ul>
+    <div id="cart-box">
+    <div class="mid-body">
     <% cart.forEach(book => { %>
       <% if (!shownOnce) { %>
       <form action="/books/<%=book._id%>?_method=PUT" method="POST">
-        <button type='submit'>Delete All</button>
+        <button id="delete-all" type='submit'>Delete All</button>
      </form>
      <% shownOnce = true; %> 
      <% } %>
-      <a href="/books/<%=book._id%>"><div><%=book.title%></div></a>
-      <li>Author: <%=book.author%></li>
-      <li>Genre: <%=book.genre%></li>
-      <p>Summary: <%= book.summary %></p>
+      <div class="container">
+      <img src="<%=book.thumbnail%>" width="120" height="150" />
+        <a href="/books/<%=book._id%>"><b class="title"><%=book.title%></b></a>
+        <div>Author: <%=book.authors%></div>
+        <div>Genre: <%=book.genre%></div>
+        </div>
+      <p class="cart-summary">Summary: <%= book.summary %></p>
+
       <form action="/books/<%=book._id%>?_method=DELETE" method="POST">
-        <button type='submit'>Delete from cart</button>
+        <button id="delete-one" type='submit'>Delete from cart</button>
      </form>
+     <hr />
     <% }) %>
-    <button>Proceed to Checkout</button>
+    </div>
+    <button id="checkout">Proceed to Checkout</button>
+     </div>
   </body>
 </html>
 </form>

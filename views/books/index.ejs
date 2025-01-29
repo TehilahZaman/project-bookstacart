@@ -9,12 +9,17 @@
   <body>
     <%- include('../partials/_navbar')%>
     <h1>Browse Available Books!</h1>
-    <% books.forEach(book => { %>
-    <img src="<%=book.thumbnail%>" width="70" height="70" />
-    <a href="/books/<%=book._id%>"><%=book.title%></a>
-    <div>Authors: <%=book.authors%></div>
-    <div>Genre: <%=book.genre%></div>
-    <p class="book-summary">Summary: <%= book.summary%></p>
-    <% }) %>
+    <div class="mid-body">
+      <% books.forEach(book => { %>
+      <div class="container">
+        <img src="<%=book.thumbnail%>" width="95" height="122" />
+        <a href="/books/<%=book._id%>"><b class="title"><%=book.title%></b></a>
+        <div class="books-index">Authors: <%=book.authors[0]%></div>
+        <div class="books-index">Genre: <%=book.genre[0]%></div>
+      </div>
+      <p id="browse-summary" class="books-index">Summary: <%=book.summary%></p>
+      <hr />
+      <% }) %>
+    </div>
   </body>
 </html>

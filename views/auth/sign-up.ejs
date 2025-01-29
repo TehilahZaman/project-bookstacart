@@ -7,20 +7,29 @@
   <title>Sign Up</title>
 </head>
 <body>
+   <%- include('../partials/_navbar')%>
   <h1>Create a new account!</h1>
   <form action="/auth/sign-up" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" name="username" id="username" required />
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" required />
-    <label for="confirmPassword">Confirm Password:</label>
-    <input 
-      type="password"
-      name="confirmPassword"
-      id="confirmPassword"
-      required 
-    />
-    <button type="submit">Sign up</button>
+    <div class="form-el">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required />
+    </div>
+    <div class="form-el"
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required />
+    </div>
+    <div class="form-el">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input 
+        type="password"
+        name="confirmPassword"
+        id="confirmPassword"
+        required 
+      />
+    </div>
+    <div class="form-el">
+      <button class="auth-button" type="submit">Sign up</button>
+    </div>
   </form>
 </body>
 </html>

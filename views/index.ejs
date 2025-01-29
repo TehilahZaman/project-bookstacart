@@ -7,15 +7,11 @@
     <title>Home Page</title>
   </head>
   <body>
-    <% if (user) { %> <%- include('./partials/_navbar')%>
-    <h1>Welcome to the app, <%= user.username %>!</h1>
+    <%- include('./partials/_navbar')%> <% if (user) { %>
+    <h1>Welcome to BookstaCart, <%= user.username %>!</h1>
     <% } else { %>
-    <h1>Welcome to the app, guest.</h1>
-    <p>
-      <a href="/books">Browse Books</a>
-      <a href="/auth/sign-up">Sign up</a> or
-      <a href="/auth/sign-in">Sign in</a>.
-    </p>
+    <h1>Welcome to BookstaCart, guest.</h1>
     <% } %>
+    <h3>Where there are endless books to exlpore!</h3>
   </body>
 </html>

@@ -1,5 +1,4 @@
 const axios = require("axios");
-const apiKey = "YOUR_GOOGLE_API_KEY";
 
 async function fetchBooks(query) {
   const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${process.env.API_KEY}`;

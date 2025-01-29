@@ -1,35 +1,178 @@
 /* imported font  */
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Merriweather:ital,wght@0,400;1,700&display=swap");
 
 body {
   font-family: "Merriweather", serif;
-  display: flex;
-  flex-direction: column;
   height: 100vh;
   width: 100vw;
-  background-color: green;
-  /* #ffffff; */
+  background-color: #ffffff;
+  margin: 0;
+  padding-bottom: 90px;
 }
 
-/* .book-summary {
-  width: 300px;
-  margin: 20px 0;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
+nav {
+  font-family: "Gudy Bookletter 1911", serif;
+  font-size: 25px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #f4f1eb;
 }
 
-.book-sumarry.expanded {
-  -webkit-line-slamp: uset;
-  overflow: visible;
+span {
+  margin-left: 10px;
+  font-size: 40px;
 }
 
-.toggle-button {
-  margin-top: 5px;
-  color: blue;
-  background: none;
-  border: none;
+nav a {
+  text-align: right;
+  padding: 12px 15px;
+  float: right;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 15px;
+  padding-top: 25px;
+  padding-bottom: 20px;
+}
+
+h3 {
+  text-align: center;
+  margin: 0;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.mid-body {
+  margin-left: 8%;
+}
+
+.form-el {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 11px;
+}
+
+.auth-button {
+  padding: 5px 42px;
+  font-size: 17px;
+}
+
+button {
+  display: block;
+  border: solid black;
+  background-color: f4f1eb;
+  border-radius: 12px; /* rounds the border of the form buttons */
+  padding: 2px 4px;
+}
+button:hover {
   cursor: pointer;
-  text-decoration: underline;
-} */
+}
+#add-one {
+  margin-top: 35px;
+  margin-left: 8%;
+  padding: 6px 35px;
+}
+#delete-all {
+  margin-top: 5px;
+  margin-bottom: 30px;
+  margin-left: 41%;
+  padding: 5px 35px;
+}
+#delete-one {
+  margin-top: 15px;
+  margin-bottom: 18px;
+  margin-left: 10%;
+  padding: 4px 25px;
+}
+#checkout {
+  margin-top: 35px;
+  margin-left: 43%;
+  margin-bottom: 15px;
+  padding: 5px 35px;
+}
+
+.books-index {
+  min-height: 20px; /* Adjusted to give enough space for content */
+  max-width: 700px; /* Maximum width for the summary block */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis for clipped text */
+  white-space: nowrap; /* Ensures text does not wrap to a new line */
+  padding: 3px;
+}
+
+#browse-summary {
+  margin-bottom: 22px;
+}
+
+.show-summary {
+  max-width: 90%;
+  margin-top: 150px; /* pushes the summary below the image */
+  line-height: 25px;
+}
+
+#show-genre {
+  margin-top: 4px;
+}
+
+#show-author {
+  margin-right: 230px;
+  padding-left: 11em;
+  margin-bottom: 5px;
+  line-height: 20px;
+  text-indent: -1.5em;
+}
+
+.cart-summary {
+  min-height: 20px; /* Adjusted to give enough space for content */
+  max-width: 700px; /* Maximum width for the summary block */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis for clipped text */
+  white-space: nowrap; /* Ensures text does not wrap to a new line */
+  margin-top: 28px;
+  margin-bottom: 0px;
+}
+
+#cart-box {
+  border: solid black;
+  padding-top: 25px;
+  padding-left: 20px;
+  margin-right: 100px;
+  margin-left: 80px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  text-decoration-line: underline;
+}
+
+.container {
+  /* for book info ex. summary*/
+  display: flex-box;
+  margin-top: 25px;
+}
+
+img {
+  float: left;
+  margin-right: 13px;
+}
+
+hr {
+  background-color: black;
+  height: 1.5px;
+  border: 0;
+  width: 90%;
+  text-align: left;
+  margin-left: 0;
+  margin-top: 5px;
+}

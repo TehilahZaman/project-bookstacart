@@ -1,11 +1,14 @@
 <nav>
+  <span id="nav-title">
+    <b><i>BookstaCart</i></b>
+  </span>
   <% if (user) { %>
-  <a href="/books">Browse Books</a>
-  <a href="/">Homepage</a>
-  <a href="/users/<%= user._id %>/cart">Cart</a>
   <a href="/auth/sign-out">Sign out</a>
+  <a href="/users/<%= user._id %>/cart">Cart</a>
+  <a href="/">Homepage</a>
+  <a href="/books">Browse Books</a>
   <% } else { %>
   <a href="/books">Browse Books</a>
-  <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">Sign in</a>. <%
-  } %>
+  <a href="/auth/sign-up">Sign up</a>
+  <a href="/auth/sign-in">Sign in</a> <% } %>
 </nav>
