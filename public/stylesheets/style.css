@@ -1,0 +1,35 @@
+/* imported font  */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+
+body {
+  font-family: "Merriweather", serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: green;
+  /* #ffffff; */
+}
+
+/* .book-summary {
+  width: 300px;
+  margin: 20px 0;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.book-sumarry.expanded {
+  -webkit-line-slamp: uset;
+  overflow: visible;
+}
+
+.toggle-button {
+  margin-top: 5px;
+  color: blue;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+} */

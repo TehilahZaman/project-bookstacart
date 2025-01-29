@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Cart Index</title>
   </head>
   <body>
@@ -17,7 +18,7 @@
      </form>
      <% shownOnce = true; %> 
      <% } %>
-      <div><%=book.title%></div>
+      <a href="/books/<%=book._id%>"><div><%=book.title%></div></a>
       <li>Author: <%=book.author%></li>
       <li>Genre: <%=book.genre%></li>
       <p>Summary: <%= book.summary %></p>
@@ -25,6 +26,7 @@
         <button type='submit'>Delete from cart</button>
      </form>
     <% }) %>
+    <button>Proceed to Checkout</button>
   </body>
 </html>
 </form>

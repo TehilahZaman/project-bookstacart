@@ -4,6 +4,8 @@ const router = express.Router();
 const UserModel = require("../models/user.js");
 const BookModel = require("../models/book.js");
 
+const { fetchBooks } = require("../google_service");
+
 router.get("/", async (req, res) => {
   try {
     const allBooks = await BookModel.find({});
@@ -12,6 +14,25 @@ router.get("/", async (req, res) => {
     console.log(err);
     // res.redirect("/");
     res.send("Error in rendering books index");
+  }
+});
+
+router.get("/fetch-and-save-books", async (req, res) => {
+  const query = req.query.q || "fiction"; // Example: Get query from request, default to 'fiction'
+  try {
+    const books = await fetchBooks(query);
+    const formattedBooks = books.map((book) => ({
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors || [],
+      genre: book.volumeInfo.categories || [],
+      summary: book.volumeInfo.description,
+      thumbnail: book.volumeInfo.imageLinks?.thumbnail || "",
+    }));
+
+    await BookModel.insertMany(formattedBooks); // Save to database
+    res.status(200).send("Books saved to database successfully!");
+  } catch (error) {
+    res.status(500).send("Error saving books: " + error.message);
   }
 });
 

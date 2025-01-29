@@ -5,15 +5,22 @@ const bookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  author: {
-    type: String,
-    required: true,
-  },
-  genre: {
-    type: String,
-  },
+  authors: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
+  genre: [
+    {
+      type: String,
+    },
+  ],
   summary: {
     type: String,
+  },
+  thumbnail: {
+    type: String, 
   },
   // a field/key to represent the relationship
   purchasers: [

@@ -1,8 +1,11 @@
 <nav>
-  <a href="/users/<%= user._id %>/cart">Cart</a>
-  <a href="/books">Books</a>
-  <a href="/books/6798231877a875cfc01c91d9">That one book</a>
-  <a href="/books/67991197dc2d80afdb0bc547">That other book</a>
+  <% if (user) { %>
+  <a href="/books">Browse Books</a>
   <a href="/">Homepage</a>
+  <a href="/users/<%= user._id %>/cart">Cart</a>
   <a href="/auth/sign-out">Sign out</a>
+  <% } else { %>
+  <a href="/books">Browse Books</a>
+  <a href="/auth/sign-up">Sign up</a> or <a href="/auth/sign-in">Sign in</a>. <%
+  } %>
 </nav>
