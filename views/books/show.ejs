@@ -20,7 +20,7 @@
       <p class="show-summary">Summary: <%= book.summary %></p>
     </div>
     <% if (user){ %>
-    <form action="/books/<%=book._id%>" method="POST">
+    <form action="/books/<%=book._id%>?_method=PUT" method="POST">
       <input
         type="text"
         name="title"

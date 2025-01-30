@@ -47,10 +47,8 @@ router.get("/:bookId", async (req, res) => {
   }
 });
 
-//create route
-// this doesn't match restful convention
-///:bookId
-router.post("/:bookId", async (req, res) => {
+// is it okay to have this as a post not put?
+router.put("/:bookId", async (req, res) => {
   try {
     const currentUser = await UserModel.findById(req.session.user._id);
     const book = await BookModel.findOne({ _id: req.params.bookId });

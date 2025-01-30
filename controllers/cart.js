@@ -4,7 +4,7 @@ const router = express.Router();
 // const UserModel = require("../models/user.js");
 const BookModel = require("../models/book.js");
 
-// cart show all books in the cart
+// cart index all books in the cart
 router.get("/", async (req, res) => {
   try {
     const booksInCart = await BookModel.find({

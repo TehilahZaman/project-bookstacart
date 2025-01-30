@@ -8,7 +8,6 @@ const morgan = require("morgan");
 const session = require("express-session");
 
 const booksCtrl = require("./controllers/books.js");
-//cahnge to user?
 const usersCtrl = require("./controllers/users.js");
 const authCtrl = require("./controllers/auth.js");
 const cartCtrl = require("./controllers/cart");
@@ -53,8 +52,6 @@ app.use(passUserToView);
 app.use("/auth", authCtrl);
 app.use("/books", booksCtrl);
 app.use(isSignedIn);
-//cahnge to user?
-// and user/userId
 app.use("/users/:userId/cart", cartCtrl);
 app.use("/users", usersCtrl);
 
