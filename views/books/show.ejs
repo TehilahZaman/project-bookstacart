@@ -17,10 +17,14 @@
         <%=author%><%=index < book.authors.length - 1 ? ',' : ' ' %> <% }) %>
       </div>
       <div id="show-genre">Genre: <%=book.genre%></div>
+      <% if (book.summary) { %>
       <p class="show-summary">Summary: <%= book.summary %></p>
+      <% } else {%>
+      <p class="show-summary"></p>
+      <% } %>
     </div>
     <% if (user){ %>
-    <form action="/books/<%=book._id%>?_method=PUT" method="POST">
+    <form action="/books/tocart/<%=book._id%>?_method=PUT" method="POST">
       <input
         type="text"
         name="title"

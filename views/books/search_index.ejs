@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title>Book Index</title>
+    <title>Ssearch Index</title>
   </head>
   <body>
     <%- include('../partials/_navbar')%>
-    <h1>Browse Available Books!</h1>
+    <h1>Your Searched Books!</h1>
 
     <form class="form-el" action="/books/searchbooks/" method="GET">
       <label for="title"></label>
       <input type="search" name="title" id="title" required />
       <button class="search-button" type="submit">Search</button>
     </form>
+
+    <% if (books.length === 0) { %>
+    <p>There are no books with that title</p>
+    <% } %>
 
     <div class="mid-body">
       <% books.forEach(book => { %>
@@ -24,11 +28,7 @@
         <div>Authors: <%=book.authors[0]%></div>
         <div>Genre: <%=book.genre[0]%></div>
       </div>
-      <% if (book.summary) { %>
       <p id="browse-summary" class="books-index">Summary: <%=book.summary%></p>
-      <% } else { %>
-      <p id="empty-summary"></p>
-      <% } %>
       <hr />
       <% }) %>
     </div>

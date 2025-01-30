@@ -10,10 +10,15 @@ router.get("/", async (req, res) => {
     const booksInCart = await BookModel.find({
       purchasers: req.session.user._id,
     });
-    //.populate({ path: "purchasers", selecct: "username" });
+
+    // if (!booksInCart.purchasers) {
+    //   console.log("empty cart!!!!!");
+    //   return res.render("cart/index.ejs", { cart: [] }); // Return empty if no search term
+    // } else if (booksInCart.purchasers) {
     res.render("cart/index.ejs", {
       cart: booksInCart,
     });
+    //}
   } catch (err) {
     console.log(err);
     res.send("Error rendering cart index");

@@ -19,6 +19,11 @@
      </form>
      <% shownOnce = true; %> 
      <% } %>
+
+    <% if (cart.purchasers === 0) { %>
+    <p>There are no books the cart</p>
+    <% } %>
+
       <div class="container">
       <img src="<%=book.thumbnail%>" width="120" height="150" />
         <a href="/books/<%=book._id%>"><b class="title"><%=book.title%></b></a>

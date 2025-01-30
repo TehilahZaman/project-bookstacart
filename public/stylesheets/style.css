@@ -98,6 +98,10 @@ button:hover {
   margin-bottom: 15px;
   padding: 5px 35px;
 }
+.search-button {
+  border-radius: 5px;
+  padding: 3px 5px;
+}
 
 .books-index {
   min-height: 20px; /* Adjusted to give enough space for content */
@@ -107,9 +111,11 @@ button:hover {
   white-space: nowrap; /* Ensures text does not wrap to a new line */
   padding: 3px;
 }
-
+#empty-summary {
+  margin: 65px;
+}
 #browse-summary {
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 
 .show-summary {

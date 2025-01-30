@@ -30,9 +30,31 @@ router.get("/fetch-and-save-books", async (req, res) => {
     }));
 
     await BookModel.insertMany(formattedBooks); // Save to database
-    res.status(200).send("Books saved to database successfully!");
+    // res.status(200).send("Books saved to database successfully!");
+    // res.render("books/index.ejs", { books: formattedBooks }); // this send you to a page with just those books- so actually this is what i was looking for in combining my searches
+    res.redirect("/books");
   } catch (error) {
     res.status(500).send("Error saving books: " + error.message);
+  }
+});
+
+router.get("/searchbooks/", async (req, res) => {
+  const searchQuery = req.query.title;
+
+  try {
+    if (!searchQuery) {
+      return res.render("books/search_index.ejs", { books: [] }); // Return empty if no search term
+      console.log("no books!");
+    }
+    const searchedBooks = await BookModel.find({
+      title: { $regex: searchQuery, $options: "i" },
+    });
+    res.render("books/search_index.ejs", {
+      books: searchedBooks,
+    });
+  } catch (err) {
+    console.log(err);
+    res.send(`Error searching for books `);
   }
 });
 
@@ -47,8 +69,8 @@ router.get("/:bookId", async (req, res) => {
   }
 });
 
-// is it okay to have this as a post not put?
-router.put("/:bookId", async (req, res) => {
+// add to cart
+router.put("/tocart/:bookId", async (req, res) => {
   try {
     const currentUser = await UserModel.findById(req.session.user._id);
     const book = await BookModel.findOne({ _id: req.params.bookId });
