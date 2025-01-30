@@ -59,5 +59,16 @@
     <% } else { %>
     <p><a href="/auth/sign-in">Login </a>to add to cart</p>
     <% } %>
+
+    <h2>Reviews:</h2>
+
+    <p>reviwed by <%=book.reviews.length %> people. Exciting!</p>
+    <p>Write your own review!</p>
+    <form action="/books/<%=book._id%>/reviewed-by/<%=user._id%>" method="POST">
+      <label for="text">Leave a review!</label>
+      <input type="text" name="text" id="text" />
+
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>

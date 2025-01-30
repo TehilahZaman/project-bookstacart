@@ -11,6 +11,7 @@ const booksCtrl = require("./controllers/books.js");
 const usersCtrl = require("./controllers/users.js");
 const authCtrl = require("./controllers/auth.js");
 const cartCtrl = require("./controllers/cart");
+const reviewCtrl = require("./controllers/reviews.js");
 
 const axios = require("axios");
 
@@ -54,7 +55,8 @@ app.use("/books", booksCtrl);
 app.use(isSignedIn);
 app.use("/users/:userId/cart", cartCtrl);
 app.use("/users", usersCtrl);
-
+app.use("/books", reviewCtrl);
+  // :bookId/reviewed-by/:userId"
 
 app.use(express.json());
 

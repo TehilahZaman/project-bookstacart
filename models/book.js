@@ -20,7 +20,7 @@ const bookSchema = new mongoose.Schema({
     type: String,
   },
   thumbnail: {
-    type: String, 
+    type: String,
   },
   // a field/key to represent the relationship
   purchasers: [
@@ -29,6 +29,15 @@ const bookSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       // tell mongoose what we are referencing
       ref: "User",
+    },
+  ],
+  //reviews reference
+  reviews: [
+    {
+      // type is the references;s object id
+      type: mongoose.Schema.Types.ObjectId,
+      // tells mongoose what we are referencing
+      ref: "Review",
     },
   ],
 });

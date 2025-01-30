@@ -14,11 +14,11 @@
 
 [![Portfolio Badge](https://img.shields.io/badge/-github.com/TehilahZaman-magenta?style=flat&logo=)](https://github.com/TehilahZaman)
 
-## Decription Here
+## Decription HERE
 
 </div>
 
-## Screenshots here
+## Screenshots HERE
 
 |       Description        | Screenshot |
 | :----------------------: | --------------------------------- |
@@ -47,10 +47,11 @@
 ![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
-any additional tech here
+
+any additional tech HERE
 https://shields.io/
 
-## Using BookstaCart
+## Using BookstaCart HERE
 
   <details open>
   <summary> How to Add and Search For Books </summary>
@@ -68,7 +69,7 @@ https://shields.io/
   >
 </details>
 
-## Upcoming Features
+## Upcoming Features HERE
 
 - [x] done
 
