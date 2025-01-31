@@ -85,7 +85,7 @@ Bookstacart that hosts a selection of books Users can browse a selection of book
 
 ## Upcoming Features HERE
 
-- [:X:] Users can edit/delete only their own reviews
+- [X] Users can edit/delete only their own reviews
 
 - [ ] Ability to enter user information
 
