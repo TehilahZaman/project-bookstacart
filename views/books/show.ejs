@@ -21,69 +21,90 @@
       <p class="show-summary">Summary: <%= book.summary %></p>
       <% } else {%>
       <p class="show-summary"></p>
+      <% } %> <% if (user){ %>
+      <form action="/books/tocart/<%=book._id%>?_method=PUT" method="POST">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value="<%=book.title%>"
+          hidden
+        />
+        <input
+          type="text"
+          name="author"
+          id="author"
+          value="<%=book.authors%>"
+          hidden
+        />
+        <input
+          type="text"
+          name="genre"
+          id="genre"
+          value="<%=book.genre%>"
+          hidden
+        />
+        <input
+          type="text"
+          name="summary"
+          id="summary"
+          value="<%=book.summary%>"
+          hidden
+        />
+
+        <button id="add-one" type="submit">Add to cart</button>
+      </form>
+      <% } else { %>
+      <p><a href="/auth/sign-in">Login </a>to add to cart</p>
       <% } %>
-    </div>
-    <% if (user){ %>
-    <form action="/books/tocart/<%=book._id%>?_method=PUT" method="POST">
-      <input
-        type="text"
-        name="title"
-        id="title"
-        value="<%=book.title%>"
-        hidden
-      />
-      <input
-        type="text"
-        name="author"
-        id="author"
-        value="<%=book.authors%>"
-        hidden
-      />
-      <input
-        type="text"
-        name="genre"
-        id="genre"
-        value="<%=book.genre%>"
-        hidden
-      />
-      <input
-        type="text"
-        name="summary"
-        id="summary"
-        value="<%=book.summary%>"
-        hidden
-      />
 
-      <button id="add-one" type="submit">Add to cart</button>
-    </form>
-    <% } else { %>
-    <p><a href="/auth/sign-in">Login </a>to add to cart</p>
-    <% } %>
-    <h2>Reviews:</h2>
-    <form action="/books/<%=book._id%>/reviewed-by" method="POST">
-      <label for="text">Leave a review!</label>
-      <input type="text" name="text" id="text" />
+      <h2 id="review-title">Customer Reviews:</h2>
 
-      <button type="submit">Submit</button>
-    </form>
-    <% book.reviews.forEach(review => { %>
+      <form action="/books/<%=book._id%>/reviewed-by" method="POST">
+        <label  for="text">Leave a review!</label>
+        <div class="edit-form">
+          <textarea name="text" id="text" rows="5" cols="40"></textarea>
+          <button class="review-button" type="submit">Submit</button>
+        </div>
+      </form>
+
+      <% book.reviews.forEach(review => { %>
       <!-- only show page if edit is true, make sure the review opened to be edited matches the review clicked on  -->
       <% if (edit && editReview._id === review._id) { %>
-        <form action="/books/<%=book._id%>/reviewed-by/<%=review._id%>?_method=PUT" method="POST">
-         <input type="text" name="text" id="text" value="<%=review.text%>"/>
-    
-         <button type="submit">Submit</button>
-       </form>
-       
-       <% } else { %>
-        <p><%=review.text%></p>
-    <p><%=review.user.username%> Posted on: <%=String(review.updatedAt).substr(3, 13)%></p>
-        <a href="/books/<%=book._id%>/reviewed-by/<%=review._id%>/edit">Edit</a
-        <% } %>
-      <form action="/books/<%=book._id%>/reviewed-by/<%=review._id%>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-      </form>
-        <% }) %>
 
+      <form 
+        action="/books/<%=book._id%>/reviewed-by/<%=review._id%>?_method=PUT"
+        method="POST"
+      >
+     <label for="text">Edit your Review:</label>
+     <div id="edit-review"> 
+        <textarea name="text" id="text" rows="5" cols="60"><%=review.text%></textarea>
+        <button class="review-button" type="submit">Submit</button>
+        </div>
+      </form>
+
+      <% } else { %>
+      <div id="review-box">
+        <p id="review-text">
+          <%=review.user.username%> posted on:
+          <%=String(review.updatedAt).substr(3, 13)%> <hr id="rev-hr">
+          <%=review.text%>
+        </p>
+
+        <a
+          class="review-button" id="edit-btn"
+          href="/books/<%=book._id%>/reviewed-by/<%=review._id%>/edit"
+          >Edit</a
+        >
+        <form
+          action="/books/<%=book._id%>/reviewed-by/<%=review._id%>?_method=DELETE"
+          method="POST"
+        >
+          <button class="review-button" type="submit">Delete</button>
+          </div>
+        </form>
+        <% } %>
+      <% }) %>
+    </div>
   </body>
 </html>

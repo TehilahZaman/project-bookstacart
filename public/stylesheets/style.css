@@ -44,6 +44,23 @@ h3 {
   margin: 0;
 }
 
+#review-title {
+  /* float: right; */
+  margin-top: 50px;
+}
+
+#review-text {
+  margin: 0;
+}
+
+#edit-review {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 18px;
+}
+
 .title {
   font-size: 20px;
 }
@@ -77,7 +94,7 @@ button:hover {
 }
 #add-one {
   margin-top: 35px;
-  margin-left: 8%;
+  margin-left: 2%;
   padding: 6px 35px;
 }
 #delete-all {
@@ -101,6 +118,18 @@ button:hover {
 .search-button {
   border-radius: 5px;
   padding: 3px 5px;
+}
+#edit-btn {
+  font-size: 14px;
+  background-color: #efefef;
+  padding: 2px 10px;
+}
+.review-button {
+  font-family: "Merriweather", serif;
+  border: solid black;
+  border-radius: 5px;
+  padding: 3px 5px;
+  float: right;
 }
 
 .books-index {
@@ -134,6 +163,30 @@ button:hover {
   margin-bottom: 5px;
   line-height: 20px;
   text-indent: -1.5em;
+}
+
+#review-box {
+  border: solid black;
+  padding-top: 0px;
+  padding-left: 20px;
+  padding-right: 25px;
+  margin-right: 100px;
+  margin-left: 80px;
+  margin-top: 40px;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 11px;
+  margin-bottom: 25px;
+}
+
+#rev-hr {
+  width: 102%;
+  margin-bottom: 20px;
 }
 
 .cart-summary {
