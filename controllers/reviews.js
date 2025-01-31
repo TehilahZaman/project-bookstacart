@@ -4,8 +4,6 @@ const router = express.Router();
 const ReviewModel = require("../models/review.js");
 const BookModel = require("../models/book.js");
 
-///books/:bookId/reviewed-by/:userId
-
 //create a review on a book show page
 router.post("/:bookId/reviewed-by", async (req, res) => {
   req.body.user = req.session.user._id;

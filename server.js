@@ -56,7 +56,6 @@ app.use(isSignedIn);
 app.use("/users/:userId/cart", cartCtrl);
 app.use("/users", usersCtrl);
 app.use("/books", reviewCtrl);
-  // :bookId/reviewed-by/:userId"
 
 app.use(express.json());
 
