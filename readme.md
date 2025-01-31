@@ -1,5 +1,5 @@
 <div id="banner" align="center" >
-<img src="https://static.vecteezy.com/system/resources/previews/023/052/526/non_2x/red-cart-full-of-books-illustration-vector.jpg" width="800" height="400">
+<img src="https://static.vecteezy.com/system/resources/previews/023/052/526/non_2x/red-cart-full-of-books-illustration-vector.jpg" width="400" height="400">
 </div>
 
 <div id="description" align="center">
@@ -20,14 +20,16 @@
 
 ## Screenshots
 
-|       Description        | Screenshot |
-| :----------------------: | --------------------------------- |
-| <h3>Sign up/Login </h3>  | <img src="images/signup.png" width="700"/>  <img src="images/signin.png" width="700"/>  |
-| **Homepage**             | <img src="images/homepage.png" width="700"/> |
-| **Browse Books**         | <img src="images/browse.png" width="700"/> |
-| **Searched Books**       | <img src="images/searched-index.png" width="700"/> |
-| **Specific Book**        | <img src="images/book-page.png" width="700"/> |
-| **Cart**                 | <img src="images/cart.png" width="700"/> |
+|    Description     | Screenshot                                                                               |
+| :----------------: | ---------------------------------------------------------------------------------------- |
+| **Sign up/Login ** | <img src="images/signup.png" width="700"/> <img src="images/signin.png" width="700"/>    |
+|    **Homepage**    | <img src="images/homepage.png" width="700"/>                                             |
+|  **Browse Books**  | <img src="images/browse.png" width="700"/>                                               |
+| **Searched Books** | <img src="images/searched-index.png" width="700"/>                                       |
+| **Specific Book**  | <img src="images/book-page.png" width="700"/>                                            |
+| **Review a Book**  | <img src="images/comment.png" width="700"/> <img src="images/reviewed.png" width="700"/> |
+| **Edit a review**  | <img src="images/edit.png" width="700"/>                                                 |
+|      **Cart**      | <img src="images/cart.png" width="700"/>                                                 |
 
   <summary>Drop down summary HERE </summary>
 
@@ -47,16 +49,21 @@
 ![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
-
-## Using BookstaCart HERE
+## Using BookstaCart
 
   <details open>
   <summary> How to Add and Search For Books </summary>
-    1. 
+    On the Homepage and the Browse For Books page, there are search bars. The Homepage search allows you to add books from Google API into Bookstacart. The search on the Browse page allows yo uto search for specific books within Bookstacart. SImply enter a search term and submit! 
 </details>
 
 <details>
   <summary> How to Purchase a Book</summary>
+  On the Browse page you can slect any of the books available to you. You will be directed to a page with more information about the book. If you wish to purchase the book, click the add to cart button, and the book will authomatically be added to your cart. From ther you can add more, delete one or all, and purchase your books. 
+</details>
+
+<details>
+  <summary> Leave a comment </summary>
+  Select the book you wish to review, scroll down to the comment section and enter your review into the open text area. You can submit your review, edit it later, or delete it.  
 </details>
 
 <details open>
@@ -68,8 +75,12 @@
 
 ## Upcoming Features HERE
 
-- [x] done
+- [::] Users can edit/delete only their own reviews
 
-[x] added
+- [::] Ability to enter user information
 
-[ ] to be done
+- [::] Purchase feature
+
+- [::] Pop ups when books are added to cart
+
+- [::] Notification when browse section or cart is empty
