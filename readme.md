@@ -6,15 +6,15 @@
 
 #Bookstacart
 
-### [click to demo] (LINK HERE)
-
 #### Tehilah Zamanzadeh
 
 [![Linkedin Badge](https://img.shields.io/badge/-@tehilahzaman-blue?style=flat&logo=Linkedin&logoColor=black)](https://www.linkedin.com/in/tehilah-zaman/)
 
 [![Portfolio Badge](https://img.shields.io/badge/-github.com/TehilahZaman-magenta?style=flat&logo=)](https://github.com/TehilahZaman)
 
-## Decription HERE
+## Decription
+
+Bookstacart that hosts a selection of books Users can browse a selection of books, review on books, and add books to their cart to purchase. Bookstacart is connected to database of books, and users can search for books and add the mto Bookstacart's selection. Welcome to Bookstacart, where there are endless books to explore!
 
 </div>
 
@@ -31,8 +31,6 @@
 | **Edit a review**  | <img src="images/edit.png" width="700"/>                                                 |
 |      **Cart**      | <img src="images/cart.png" width="700"/>                                                 |
 
-  <summary>Drop down summary HERE </summary>
-
 ## Technologies Used
 
 ![MongoDB](https://img.shields.io/badge/-MongoDB-05122A?style=flat&logo=mongodb)
@@ -44,14 +42,13 @@
 ![CSS](https://img.shields.io/badge/-CSS-05122A?style=flat&logo=css)
 ![Trello](https://img.shields.io/badge/-Trello-05122A?style=flat&logo=trello)
 ![Heroku](https://img.shields.io/badge/-Heroku-05122A?style=flat&logo=heroku)
-![Markdown](https://img.shields.io/badge/-Markdown-05122A?style=flat&logo=markdown)
 ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
 ![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
 ## Using BookstaCart
 
-  <details open>
+  <details >
   <summary> How to Add and Search For Books </summary>
     On the Homepage and the Browse For Books page, there are search bars. The Homepage search allows you to add books from Google API into Bookstacart. The search on the Browse page allows yo uto search for specific books within Bookstacart. SImply enter a search term and submit! 
 </details>
@@ -67,10 +64,23 @@
 </details>
 
 <details open>
+  <summary> Trello Board </summary>
+  <a href="https://trello.com/b/c1Wt355y/bookstacart"
+    > https://trello.com/b/c1Wt355y/bookstacart</a
+  >
+</details>
+
+<details open>
   <summary> Deployed Link </summary>
   <a href="--- "
     > -- </a
   >
+</details>
+
+<details open>
+  <summary> Challenges and Key Take Aways </summary>
+  I found adding the search features for users to be the most exciting part of the project. It was something new and I enjoyed the challenge of figuring out how to implement exactly what I wanted. 
+  Consuming the Google API and learning how to implrement referencing data were my biggest challenges during this project. I learned a lot pushing myself to do new things and take on the harder tasks, and I enjoyed building Bookstacart.  
 </details>
 
 ## Upcoming Features HERE
