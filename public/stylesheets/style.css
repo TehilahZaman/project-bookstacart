@@ -140,11 +140,18 @@ button:hover {
   white-space: nowrap; /* Ensures text does not wrap to a new line */
   padding: 3px;
 }
+
 #empty-summary {
   margin: 65px;
 }
+
 #browse-summary {
   margin-bottom: 25px;
+}
+
+.no-books {
+  text-align: center;
+  margin-top: 30px;
 }
 
 .show-summary {

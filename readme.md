@@ -18,16 +18,16 @@
 
 </div>
 
-## Screenshots HERE
+## Screenshots
 
 |       Description        | Screenshot |
 | :----------------------: | --------------------------------- |
-| <h3>Sign up/Login </h3>  | <img src="" width="700"/> |
-| **Homepage**             | <img src="" width="700"/> |
-| **Browse Books**         | <img src="" width="700"/> |
-| **Searched Books**       | <img src="" width="700"/> |
-| **Specific Book**        | <img src="" width="700"/> |
-| **Cart**                 | <img src="" width="700"/> |
+| <h3>Sign up/Login </h3>  | <img src="images/signup.png" width="700"/>  <img src="images/signin.png" width="700"/>  |
+| **Homepage**             | <img src="images/homepage.png" width="700"/> |
+| **Browse Books**         | <img src="images/browse.png" width="700"/> |
+| **Searched Books**       | <img src="images/searched-index.png" width="700"/> |
+| **Specific Book**        | <img src="images/book-page.png" width="700"/> |
+| **Cart**                 | <img src="images/cart.png" width="700"/> |
 
   <summary>Drop down summary HERE </summary>
 
@@ -47,9 +47,6 @@
 ![Github](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 ![VSCode](https://img.shields.io/badge/-VS_Code-05122A?style=flat&logo=visualstudio)
 
-
-any additional tech HERE
-https://shields.io/
 
 ## Using BookstaCart HERE
 
