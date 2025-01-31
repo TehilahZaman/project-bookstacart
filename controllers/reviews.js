@@ -27,9 +27,11 @@ router.post("/:bookId/reviewed-by", async (req, res) => {
 // get edit page
 router.get("/:bookId/reviewed-by/:reviewId/edit", async (req, res) => {
   let edit = true;
+  const user = req.session.user._id;
   const book = await BookModel.findById(req.params.bookId);
   const review = book.reviews.id(req.params.reviewId);
-  res.render("books/show.ejs", { edit, book, editReview: review });
+
+  res.render("books/show.ejs", { edit, book, editReview: review, user });
 });
 
 //edit comment
@@ -42,7 +44,7 @@ router.put("/:bookId/reviewed-by/:reviewId", async (req, res) => {
 });
 
 //delete comment
-router.delete("/:bookId/reviewed-by/:reviewId", async (req, rs) => {
+router.delete("/:bookId/reviewed-by/:reviewId", async (req, res) => {
   const book = await BookModel.findById(req.params.bookId);
   const review = book.reviews.id(req.params.reviewId).deleteOne();
   await book.save();

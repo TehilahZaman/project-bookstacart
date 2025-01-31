@@ -4,7 +4,7 @@
 
 <div id="description" align="center">
 
-#Bookstacart
+# Bookstacart
 
 #### Tehilah Zamanzadeh
 
@@ -85,12 +85,12 @@ Bookstacart that hosts a selection of books Users can browse a selection of book
 
 ## Upcoming Features HERE
 
-- [::] Users can edit/delete only their own reviews
+- [:X:] Users can edit/delete only their own reviews
 
-- [::] Ability to enter user information
+- [ ] Ability to enter user information
 
-- [::] Purchase feature
+- [ ] Purchase feature
 
-- [::] Pop ups when books are added to cart
+- [ ] Pop ups when books are added to cart
 
-- [::] Notification when browse section or cart is empty
+- [ ] Notification when browse section or cart is empty

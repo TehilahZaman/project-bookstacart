@@ -44,7 +44,6 @@ router.get("/searchbooks/", async (req, res) => {
   try {
     if (!searchQuery) {
       return res.render("books/search_index.ejs", { books: [] }); // Return empty if no search term
-      console.log("no books!");
     }
     const searchedBooks = await BookModel.find({
       title: { $regex: searchQuery, $options: "i" },
@@ -62,14 +61,14 @@ router.get("/searchbooks/", async (req, res) => {
 router.get("/:bookId", async (req, res) => {
   let edit = null;
   try {
-    const book = await BookModel.findById(req.params.bookId).populate({ // .populate allows us to access the document we are referencing not just the objectId
-    path: "reviews",
-    populate: {
-      path: "user",
-      model: "User",
-    },
+    const book = await BookModel.findById(req.params.bookId).populate({
+      // .populate allows us to access the document we are referencing not just the objectId
+      path: "reviews",
+      populate: {
+        path: "user",
+        model: "User",
+      },
     });
-    console.log(book);
     res.render("books/show.ejs", { book: book, edit });
   } catch (err) {
     console.log(err);
@@ -95,10 +94,6 @@ router.put("/tocart/:bookId", async (req, res) => {
 router.delete("/:bookId", async (req, res) => {
   try {
     const currentUser = await UserModel.findById(req.session.user._id);
-    // const book = await BookModel.findById(req.params.bookId);
-    // console.log(book);
-    // book.purchasers.objectId(currentUser).deleteOne();
-    // await book.save();
     await BookModel.findByIdAndUpdate(req.params.bookId, {
       $pull: { purchasers: req.session.user._id },
     }),

@@ -71,7 +71,6 @@
       <% book.reviews.forEach(review => { %>
       <!-- only show page if edit is true, make sure the review opened to be edited matches the review clicked on  -->
       <% if (edit && editReview._id === review._id) { %>
-
       <form 
         action="/books/<%=book._id%>/reviewed-by/<%=review._id%>?_method=PUT"
         method="POST"
@@ -91,6 +90,7 @@
           <%=review.text%>
         </p>
 
+        <% if (review.user.id === user._id) { %> 
         <a
           class="review-button" id="edit-btn"
           href="/books/<%=book._id%>/reviewed-by/<%=review._id%>/edit"
@@ -101,6 +101,8 @@
           method="POST"
         >
           <button class="review-button" type="submit">Delete</button>
+       <% } %>
+
           </div>
         </form>
         <% } %>
