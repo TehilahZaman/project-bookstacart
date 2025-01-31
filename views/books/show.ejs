@@ -59,16 +59,31 @@
     <% } else { %>
     <p><a href="/auth/sign-in">Login </a>to add to cart</p>
     <% } %>
-
     <h2>Reviews:</h2>
-
-    <p>reviwed by <%=book.reviews.length %> people. Exciting!</p>
-    <p>Write your own review!</p>
-    <form action="/books/<%=book._id%>/reviewed-by/<%=user._id%>" method="POST">
+    <form action="/books/<%=book._id%>/reviewed-by" method="POST">
       <label for="text">Leave a review!</label>
       <input type="text" name="text" id="text" />
 
       <button type="submit">Submit</button>
     </form>
+    <% book.reviews.forEach(review => { %>
+      <!-- only show page if edit is true, make sure the review opened to be edited matches the review clicked on  -->
+      <% if (edit && editReview._id === review._id) { %>
+        <form action="/books/<%=book._id%>/reviewed-by/<%=review._id%>?_method=PUT" method="POST">
+         <input type="text" name="text" id="text" value="<%=review.text%>"/>
+    
+         <button type="submit">Submit</button>
+       </form>
+       
+       <% } else { %>
+        <p><%=review.text%></p>
+    <p><%=review.user.username%> Posted on: <%=String(review.updatedAt).substr(3, 13)%></p>
+        <a href="/books/<%=book._id%>/reviewed-by/<%=review._id%>/edit">Edit</a
+        <% } %>
+      <form action="/books/<%=book._id%>/reviewed-by/<%=review._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+        <% }) %>
+
   </body>
 </html>

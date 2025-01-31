@@ -60,9 +60,17 @@ router.get("/searchbooks/", async (req, res) => {
 
 // show route for a book
 router.get("/:bookId", async (req, res) => {
+  let edit = null;
   try {
-    const book = await BookModel.findById(req.params.bookId);
-    res.render("books/show.ejs", { book: book });
+    const book = await BookModel.findById(req.params.bookId).populate({ // .populate allows us to access the document we are referencing not just the objectId
+    path: "reviews",
+    populate: {
+      path: "user",
+      model: "User",
+    },
+    });
+    console.log(book);
+    res.render("books/show.ejs", { book: book, edit });
   } catch (err) {
     console.log(err);
     res.send("Error in rendering book show page");

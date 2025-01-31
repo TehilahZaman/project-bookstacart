@@ -5,29 +5,17 @@ const ReviewModel = require("../models/review.js");
 const BookModel = require("../models/book.js");
 
 ///books/:bookId/reviewed-by/:userId
-//create a comment on a book show page
 
-router.post("/:bookId/reviewed-by/:userId", async (req, res) => {
+//create a review on a book show page
+router.post("/:bookId/reviewed-by", async (req, res) => {
+  req.body.user = req.session.user._id;
   try {
-    // find the user
-    // const currentUser = await UserModel.findById(req.session.user._id);
-
-    // create the review in the DB
-    const review = await ReviewModel.create(req.body);
-
-    console.log(" the whole review:", review);
-    console.log(" review id", review.id);
-    console.log(req.params.bookId, "book id");
-    // console.log(currentUser._id);
-    console.log(review._id, " review id ");
-
-    const book = await BookModel.findById(req.params.bookId);
-    // find the book and put the review id in the book reviews key
-    await BookModel.findByIdAndUpdate(req.params.bookId, {
-      $push: { reviews: review.id },
-    });
-
-    // await book.save();
+    // find the book
+    const currentBook = await BookModel.findById(req.params.bookId);
+    // put the review in the book reviews
+    currentBook.reviews.push(req.body);
+    // save
+    await currentBook.save();
 
     res.redirect(`/books/${req.params.bookId}`);
   } catch (err) {
@@ -36,30 +24,29 @@ router.post("/:bookId/reviewed-by/:userId", async (req, res) => {
   }
 });
 
-// router.post("/:bookId/reviewed-by/:userId/:reviewId", async (req, res) => {
-//   try {
-//     // find the new review
-//     const newReview = await ReviewModel.findById(req.params.reviewId);
-//     // find the book and put the review id in the book reviews key
-//     await BookModel.findByIdAndUpdate(req.params.bookId),
-//       {
-//         $push: { reviews: req.params.reviewId },
-//       };
-//     res.send("you got it");
-//   } catch (err) {
-//     console.log(err);
-//     res.send("Error adding your review to the book");
-//   }
-// });
+// get edit page
+router.get("/:bookId/reviewed-by/:reviewId/edit", async (req, res) => {
+  let edit = true;
+  const book = await BookModel.findById(req.params.bookId);
+  const review = book.reviews.id(req.params.reviewId);
+  res.render("books/show.ejs", { edit, book, editReview: review });
+});
 
-// res.redirect(
-//   `/books/${req.params.bookId}/reviewed-by/${currentUser._id}/${review._id}`
-// );
-
-//see that comment on the page
 //edit comment
-//delete comment
+router.put("/:bookId/reviewed-by/:reviewId", async (req, res) => {
+  const book = await BookModel.findById(req.params.bookId);
+  const review = book.reviews.id(req.params.reviewId);
+  review.set(req.body);
+  book.save();
+  res.redirect(`/books/${req.params.bookId}`);
+});
 
-//see all comments for that book page
+//delete comment
+router.delete("/:bookId/reviewed-by/:reviewId", async (req, rs) => {
+  const book = await BookModel.findById(req.params.bookId);
+  const review = book.reviews.id(req.params.reviewId).deleteOne();
+  await book.save();
+  res.redirect(`/books/${req.params.bookId}`);
+});
 
 module.exports = router;

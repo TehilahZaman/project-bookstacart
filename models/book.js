@@ -1,5 +1,24 @@
 const mongoose = require("mongoose");
 
+const reviewSchema = new mongoose.Schema({
+  text: {
+    type: String,
+    required: true,
+  },
+  stars: {
+    type: String,
+    min: 1,
+    max: 10,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+
+  },
+
+}, {timestamps: true });
+
+
 const bookSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -32,14 +51,7 @@ const bookSchema = new mongoose.Schema({
     },
   ],
   //reviews reference
-  reviews: [
-    {
-      // type is the references;s object id
-      type: mongoose.Schema.Types.ObjectId,
-      // tells mongoose what we are referencing
-      ref: "Review",
-    },
-  ],
+  reviews: [reviewSchema],
 });
 
 const BookModel = mongoose.model("Book", bookSchema);
