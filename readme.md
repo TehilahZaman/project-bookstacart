@@ -85,7 +85,7 @@ Bookstacart that hosts a selection of books Users can browse a selection of book
 
 ## Upcoming Features HERE
 
-- [X] Users can edit/delete only their own reviews
+- [x] Users can edit/delete only their own reviews
 
 - [ ] Ability to enter user information
 
@@ -94,3 +94,9 @@ Bookstacart that hosts a selection of books Users can browse a selection of book
 - [ ] Pop ups when books are added to cart
 
 - [ ] Notification when browse section or cart is empty
+
+- [ ] More/less button to summaries, to allow them to expand
+
+- [ ] Add more CSS to Sign up/in
+
+- [ ] Sort books by genre 

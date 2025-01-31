@@ -69,7 +69,7 @@
       </form>
 
       <% book.reviews.forEach(review => { %>
-      <!-- only show page if edit is true, make sure the review opened to be edited matches the review clicked on  -->
+      <!-- only show page if edit is true, make sure the review being edited matches the review clicked on  -->
       <% if (edit && editReview._id === review._id) { %>
       <form 
         action="/books/<%=book._id%>/reviewed-by/<%=review._id%>?_method=PUT"

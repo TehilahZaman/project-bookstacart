@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-const ReviewModel = require("../models/review.js");
 const BookModel = require("../models/book.js");
 
 //create a review on a book show page
