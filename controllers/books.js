@@ -4,7 +4,7 @@ const router = express.Router();
 const UserModel = require("../models/user.js");
 const BookModel = require("../models/book.js");
 
-const { fetchBooks } = require("../google_service");
+const { fetchBooks } = require("../services/google_service.js");
 
 router.get("/", async (req, res) => {
   try {

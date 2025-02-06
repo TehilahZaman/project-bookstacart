@@ -72,8 +72,8 @@ Bookstacart that hosts a selection of books Users can browse a selection of book
 
 <details open>
   <summary> Deployed Link </summary>
-  <a href="--- "
-    > -- </a
+  <a href="https://ga-project-bookstacart-14b3b51de597.herokuapp.com/"
+    >https://ga-project-bookstacart-14b3b51de597.herokuapp.com/</a
   >
 </details>
 
