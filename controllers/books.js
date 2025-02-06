@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/fetch-and-save-books", async (req, res) => {
-  const query = req.query.q || "fiction"; // Example: Get query from request, default to 'fiction'
+  const query = req.query.q || "fiction"; // if no query, default to 'fiction'
   try {
     const books = await fetchBooks(query);
     const formattedBooks = books.map((book) => ({
@@ -30,8 +30,7 @@ router.get("/fetch-and-save-books", async (req, res) => {
     }));
 
     await BookModel.insertMany(formattedBooks); // Save to database
-    // res.status(200).send("Books saved to database successfully!");
-    // res.render("books/index.ejs", { books: formattedBooks }); // this send you to a page with just those books- so actually this is what i was looking for in combining my searches
+    // res.render("books/index.ejs", { books: formattedBooks }); // optional: this send user to a page with downloaded book results only
     res.redirect("/books");
   } catch (error) {
     res.status(500).send("Error saving books: " + error.message);
@@ -62,7 +61,7 @@ router.get("/:bookId", async (req, res) => {
   let edit = null;
   try {
     const book = await BookModel.findById(req.params.bookId).populate({
-      // .populate allows us to access the document we are referencing not just the objectId
+      // .populate allows access the document we are referencing not just the objectId
       path: "reviews",
       populate: {
         path: "user",
@@ -111,7 +110,6 @@ router.put("/:bookId", async (req, res) => {
       { purchasers: req.session.user._id },
       { $pull: { purchasers: req.session.user._id } }
     );
-    // await book.save();
     res.redirect(`/users/${currentUser._id}/cart`);
   } catch (err) {
     console.log(err);
